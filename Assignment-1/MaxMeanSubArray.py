@@ -2,29 +2,40 @@
 1. MaxMeanSubArray
 Given an array of integers and an integer, k, find the maximum mean of a subarray of size k.
 
-sliding window technique
-time taken: 30 minutes
+Technique: Sliding Window
+Space Complexity: O(n)
+Time Complexity: O(n)
+Time Taken: 30 minutes
+
 
 '''
 def MaxMeanSubArray(array, k):
 
-    if (not array or k==0):
+    # check is array is empty, or k window length is 0,
+    # or k window length is greater than length of array
+    if (not array or k==0): 
         return 0
     if (k > len(array)):
         return "The window is too big!"
 
-    maxMean = 0
-    minIndex = 0
-    maxIndex = k
+    maxMean = 0 #maximum mean found so far
+    minIndex = 0 #first index of window
+    maxIndex = k #last index of window
 
+    # while the left edge of the window does not hit the end of the array
     while (maxIndex <= len(array)):
+
+        #find the mean of current window
         sum = 0
         for i in range(minIndex, maxIndex):
             sum = sum + array[i]
         mean = sum/k
+
+        #if current mean is greater than maxMean, update maxMean
         if mean > maxMean:
             maxMean = mean
 
+        #move the window to the right
         minIndex = minIndex + 1
         maxIndex = maxIndex + 1
 
