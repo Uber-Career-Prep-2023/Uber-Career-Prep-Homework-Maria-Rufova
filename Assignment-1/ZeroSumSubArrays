@@ -1,0 +1,64 @@
+'''
+3. ZeroSumSubArrays
+Given an array of integers, count the number of subarrays that sum to zero.
+
+Technique: Hash the Running Computation
+Time Complexity: 
+Space Complexity: 
+Time Taken: 
+
+Notes:
+1. PythonTutor is SO helpful for this problem
+'''
+
+def zeroSumSubArrays(array):
+    #the return value
+    arrayZeroCount = 0
+
+    #the dictionary of all possible sums (of subarrays)
+    #and how many times they appear in the input array
+    dictionarySums = {}
+
+    #the current sum of elements we've seen
+    currSum = 0
+
+    # as you iteratre through the array
+    for item in array:
+
+        #keep track of the sum of all elements
+        currSum = currSum + item
+
+        #if currSum in dictionarySums:
+            
+        
+        #if that sum is unique and has not yet been seen, 
+        #add it to the dictionary of sums
+        if currSum not in dictionarySums:
+            dictionarySums[currSum] = 1
+        #but if we've already seen it, increment its val by 1
+        else:
+            dictionarySums[currSum] += 1
+
+
+        if currSum in dictionarySums:
+
+
+
+
+    return arrayZeroCount
+
+#Test Cases:
+
+#The following 3 test cases were given in the spec.
+print(zeroSumSubArrays([4, 5, 2, -1, -3, -3, 4, 6, -7])) 
+#Output: 2    Subarrays: [5, 2, -1, -3, -3] , [-3, 4, 6, -7]
+
+print(zeroSumSubArrays([1, 8, 7, 3, 11, 9]))  
+#Output: 0   Subarrays: 
+
+print(zeroSumSubArrays([8, -5, 0, -2, 3, -4])) 
+#Output: 2    Subarrays: [0] , [8, -5, 0, -2, 3, -4]
+
+
+#Edge Cases:
+#empty array, only positive, only negative, both, sorted, unsorted
