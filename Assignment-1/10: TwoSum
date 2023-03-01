@@ -1,0 +1,15 @@
+'''
+10. TwoSum
+Given an array of integers and a target integer, k, 
+return the number of pairs of integers in the array that sum to k. 
+In each pair, the two items must be distinct elements (come from different indices in the array).
+
+
+Technique: 
+Time Complexity: 
+Space Complexity: 
+Time Taken: 
+
+Notes:
+1. 
+'''

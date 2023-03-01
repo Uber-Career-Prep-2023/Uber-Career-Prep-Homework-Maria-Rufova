@@ -1,0 +1,38 @@
+'''
+4. BackspaceStringCompare
+
+Given two strings representing series of keystrokes, determine whether the resulting text is the same. 
+Backspaces are represented by the '#' character so "x#" results in the empty string ("").
+
+
+Technique: 
+Time Complexity: 
+Space Complexity: 
+Time Taken: 
+
+Notes:
+1. 
+'''
+def backspaceStringCompare(str1 , str2):
+    
+    return str1.split("#") == str2.split("#") 
+    #oops! this won't work because we actually need to delete character(s)
+    #preceeding #(s)
+
+#Test Cases:
+
+#The following 4 test cases were given in the spec.
+print(backspaceStringCompare("abcde" , "abcde")) 
+#Output: True
+
+print(backspaceStringCompare("Uber Career Prep" , "u#Uber Careee#r Prep"))  
+#Output: True    
+
+print(backspaceStringCompare("abcdef###xyz", "abcw#xyz")) 
+#Output: True  
+
+print(backspaceStringCompare("abcdef###xyz", "abcdefxyz###")) 
+#Output: False 
+
+
+#Edge Cases:

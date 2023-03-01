@@ -1,0 +1,13 @@
+'''
+6. MissingInteger
+Given an integer n and a sorted array of integers of size n-1 which contains 
+all but one of the integers in the range 1-n, find the missing integer.
+
+Technique: 
+Time Complexity: 
+Space Complexity: 
+Time Taken: 
+
+Notes:
+1. 
+'''

@@ -41,6 +41,7 @@ def zeroSumSubArrays(array):
 
 
         if currSum in dictionarySums:
+            dictionarySums[currSum] = 1 #not correct, fix this
 
 
 

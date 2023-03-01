@@ -1,0 +1,13 @@
+'''
+8. MergeIntervals
+Given a list of integer pairs representing the low and high end of an interval, 
+inclusive, return a list in which overlapping intervals are merged.
+
+Technique: 
+Time Complexity: 
+Space Complexity: 
+Time Taken: 
+
+Notes:
+1. 
+'''
