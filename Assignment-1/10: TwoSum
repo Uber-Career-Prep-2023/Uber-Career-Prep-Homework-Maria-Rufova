@@ -32,13 +32,22 @@ def twoSum(nums, k):
     '''
     sumToK = 0
 
-    solution = {}
+    index = {}
+    counts = {}
+    
     for i in range(len(nums)):
-        solution[nums[i]] = i  # {2:1, 7:2, 11:3, 15:4, . . . }
+        index[nums[i]] = i  # {2:1, 7:2, 11:3, 15:4, . . . }
+        if nums[i] in counts:
+            counts[nums[i]] += 1 # {2:1, 7:1, 11:1, ...}
+        else:
+            counts[nums[i]] = 1
     for i in range(len(nums)):
         complement = k - nums[i]
-        if complement in solution and solution[complement] != i:
-            sumToK += 1
+        if complement in index and index[complement] != i:
+            if counts[complement] > 0 and counts[nums[i]] > 0:
+                sumToK += 1
+                #print(nums[i], complement)
+                counts[complement] -= 1
     return sumToK
 
 #Test Cases:
