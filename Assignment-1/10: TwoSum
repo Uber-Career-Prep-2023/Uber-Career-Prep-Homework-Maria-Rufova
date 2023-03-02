@@ -5,11 +5,63 @@ return the number of pairs of integers in the array that sum to k.
 In each pair, the two items must be distinct elements (come from different indices in the array).
 
 
-Technique: 
-Time Complexity: 
-Space Complexity: 
-Time Taken: 
+Technique: Hash the Elements
+Time Complexity: O(n) 
+Space Complexity: O(n)
+Time Taken: 10 minutes
 
 Notes:
-1. 
+1. Seen this before on lc, but it was slightly different
+2. Hashmap is O(1) --> reduced from O(n^2) to O(n)
 '''
+
+def twoSum(nums, k):
+    '''
+    Attempt #0
+
+    Time: O(n^2)
+    Space: O(1)
+
+    sumToK = 0
+
+    for i in range(len(nums)):
+        for j in range(len(nums)):
+            if i!= j and nums[i]+nums[j]== k:
+                sumToK += 1
+    return sumToK
+    '''
+    sumToK = 0
+
+    solution = {}
+    for i in range(len(nums)):
+        solution[nums[i]] = i  # {2:1, 7:2, 11:3, 15:4, . . . }
+    for i in range(len(nums)):
+        complement = k - nums[i]
+        if complement in solution and solution[complement] != i:
+            sumToK += 1
+    return sumToK
+
+#Test Cases:
+
+#From the spec:
+print (twoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1], 10)) 
+#Output: 3     Pairs: (8, 2), (8, 2), (3, 7)
+
+print (twoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1], 8)) 
+#Output: 4     Pairs: (10, -2), (3, 5), (1, 7)
+
+print (twoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6], 6)) 
+#Output: 5     Pairs: (4, 2), (0, 6), (3, 3), (3, 3), (3, 3)
+
+print (twoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6], 1)) 
+#Output: 0     Pairs: 
+
+#Edge cases:
+# if an empty array is passed
+print (twoSum([], 3)) #Output: 0
+
+# if k = 0 is passed
+print (twoSum([1, 2, 3, 4, 5], 0)) #Output: 0
+
+# if k exceeds the maximum sum of array
+print (twoSum([1, 2, 3, 4, 5], 24)) #Output: 0
