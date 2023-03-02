@@ -8,11 +8,11 @@ In each pair, the two items must be distinct elements (come from different indic
 Technique: Hash the Elements
 Time Complexity: O(n) 
 Space Complexity: O(n)
-Time Taken: 10 minutes
+Time Taken: 30 minutes
 
 Notes:
 1. Seen this before on lc, but it was slightly different
-2. Hashmap is O(1) --> reduced from O(n^2) to O(n)
+2. Hashmap is O(1) --> reduces solution from O(n^2) to O(n)
 '''
 
 def twoSum(nums, k):
@@ -48,9 +48,9 @@ print (twoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1], 10))
 #Output: 3     Pairs: (8, 2), (8, 2), (3, 7)
 
 print (twoSum([1, 10, 8, 3, 2, 5, 7, 2, -2, -1], 8)) 
-#Output: 4     Pairs: (10, -2), (3, 5), (1, 7)
+#Output: 3     Pairs: (10, -2), (3, 5), (1, 7)
 
-print (twoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6], 6)) 
+print (twoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6], 6))  #fix this (4-->5)
 #Output: 5     Pairs: (4, 2), (0, 6), (3, 3), (3, 3), (3, 3)
 
 print (twoSum([4, 3, 3, 5, 7, 0, 2, 3, 8, 6], 1)) 
