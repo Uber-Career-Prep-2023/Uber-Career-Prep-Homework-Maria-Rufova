@@ -5,19 +5,34 @@ Given two strings representing series of keystrokes, determine whether the resul
 Backspaces are represented by the '#' character so "x#" results in the empty string ("").
 
 
-Technique: 
-Time Complexity: 
-Space Complexity: 
-Time Taken: 
+Technique: Simultanious Iteration Two-Pointer
+Time Complexity: O(n)
+Space Complexity: O(n) (or maybe O(n^2)? . . . unsure)
+Time Taken: 12 minutes
 
 Notes:
 1. 
 '''
+
+
 def backspaceStringCompare(str1 , str2):
-    
-    return str1.split("#") == str2.split("#") 
-    #oops! this won't work because we actually need to delete character(s)
-    #preceeding #(s)
+    str1List = []
+    str2List = []
+
+    for character in str1: 
+        if character != "#":
+          str1List.append(character)
+        elif len(str1List) > 0:
+            str1List.pop()
+
+    for character in str2: 
+        if character != "#":
+          str2List.append(character)
+        elif len(str2List) > 0:
+            str2List.pop()
+
+    return str1List == str2List
+
 
 #Test Cases:
 
@@ -36,3 +51,18 @@ print(backspaceStringCompare("abcdef###xyz", "abcdefxyz###"))
 
 
 #Edge Cases:
+
+#empty strings
+print(backspaceStringCompare("" , "")) #Output: True
+
+#strings only with 3 #'s each
+print(backspaceStringCompare("###" , "###")) #Output: True
+
+#strings with different amounts of #'s
+print(backspaceStringCompare("#####" , "##")) #Output: True
+
+#strings where every letter gets deleted
+print(backspaceStringCompare("s#p#r#i#n#g#" , "summer######")) #Output: True
+
+#another test with strings with different final outputs
+print(backspaceStringCompare("croi#ssa##nt" , "c#roi##sant")) #Output: False
