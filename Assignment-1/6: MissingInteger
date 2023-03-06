@@ -3,7 +3,7 @@
 Given an integer n and a sorted array of integers of size n-1 which contains 
 all but one of the integers in the range 1-n, find the missing integer.
 
-Technique: 
+Technique: I'm not sure --> two-pointer?
 Time Complexity: 
 Space Complexity: 
 Time Taken: 
@@ -11,3 +11,22 @@ Time Taken:
 Notes:
 1. 
 '''
+
+def missingInteger(array, n):
+    for i in range(1, n+1):
+        if i not in array:
+            return i
+
+
+#Test cases
+
+#From the spec:
+print(missingInteger([1, 2, 3, 4, 6, 7] , 7))
+#Output: 5
+
+print(missingInteger([1] , 2))
+#Output: 2
+
+print(missingInteger([1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12] , 12))
+#Output: 9
+

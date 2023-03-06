@@ -4,7 +4,7 @@
 Given a string and a second string representing required characters, 
 return the length of the shortest substring containing all the required characters.
 
-Technique: 
+Technique: Two-Pointer with Catch-Up Condition
 Time Complexity: 
 Space Complexity: 
 Time Taken: 
@@ -12,3 +12,26 @@ Time Taken:
 Notes:
 1. 
 '''
+def shortestSubstring(long, short):
+
+    if long == "" or short == "":
+        return 0
+
+    subintervals = {} #{ abrac: 5, brac: 4, ...}
+    reqChars = short.split()
+
+
+    return min(subintervals)
+
+#Test Cases:
+
+#The following 3 test cases were given in the spec.
+
+print(shortestSubstring("abracadabra", "abc"))
+#Output: 4   Shortest Substring: "brac"
+
+print(shortestSubstring("zxycbaabcdwxyzzxwdcbxyzabccbazyx", "abc"))
+#Output: 10   Shortest Substring: "zzyzx"
+
+print(shortestSubstring("dog", "god"))
+#Output: 3   Shortest Substring: "dog"
