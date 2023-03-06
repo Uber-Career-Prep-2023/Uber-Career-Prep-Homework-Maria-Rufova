@@ -13,3 +13,19 @@ Time Taken:
 Notes:
 1. 
 '''
+
+def kAnagrams(first, second, k):
+    return
+
+#tests
+
+#From the spec:
+print(kAnagrams("apple", "peach", 1)) #Output: False
+
+print(kAnagrams("apple", "peach", 2)) #Output: True
+
+print(kAnagrams("cat", "dog", 3)) #Output: True
+
+print(kAnagrams("debit curd", "bad credit", 1)) #Output: True
+
+print(kAnagrams("baseball", "basketball", 2)) #Output: False
