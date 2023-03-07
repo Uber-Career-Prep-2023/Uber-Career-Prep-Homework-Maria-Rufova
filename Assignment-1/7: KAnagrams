@@ -5,17 +5,42 @@ into anagrams by changing at most k characters in one of the strings.
 Given two strings and an integer k, determine if they are k-anagrams.
 
 
-Technique: 
-Time Complexity: 
-Space Complexity: 
-Time Taken: 
+Technique: Increment Decrement Counts
+Time Complexity: O(n)
+Space Complexity: O(n)
+Time Taken: 15 min
 
 Notes:
-1. 
+1. There is probably a better way to redo this
 '''
 
 def kAnagrams(first, second, k):
-    return
+
+    if len(first) != len(second):
+        return False
+
+    firstDict = {}
+    secondDict = {}
+
+    for letter in first:
+        if letter in firstDict:
+            firstDict[letter] += 1
+        else:
+            firstDict[letter] = 1
+    
+    for letter in second:
+        if letter in secondDict:
+            secondDict[letter] += 1
+        else:
+            secondDict[letter] = 1
+
+    count = 0
+    for key in firstDict:
+        if key not in secondDict or secondDict[key]!= firstDict[key]:
+            count+=1
+
+    return count <= k
+
 
 #tests
 
@@ -29,3 +54,16 @@ print(kAnagrams("cat", "dog", 3)) #Output: True
 print(kAnagrams("debit curd", "bad credit", 1)) #Output: True
 
 print(kAnagrams("baseball", "basketball", 2)) #Output: False
+
+#empty strings
+print(kAnagrams("", "", 1)) #Output: True
+
+#k = 0
+print(kAnagrams("phone", "phone", 0)) #Output: True
+
+#strings of different lengths
+print(kAnagrams("cupcakes", "cake", 2)) #Output: False
+
+#identical strings
+print(kAnagrams("sunshine", "sunshine", 2)) #Output: True
+
