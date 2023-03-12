@@ -4,13 +4,15 @@ Given an array of integers, count the number of subarrays that sum to zero.
 
 Technique: Growing / Shrinking Sliding Window
 Time Complexity: O(n^2)
-Space Complexity: O(n)
+Space Complexity: O(n) --> Correction: O(1)
 Time Taken: 40+
 
 Notes:
 1. PythonTutor is SO helpful for this problem
 2. Tried to use a hashmap somehow right away to make my solution optimal,
     but I really struggled in the process and ended up reverting to a for-loop
+
+3. can be OPTIMIZED
 '''
 
 def zeroSumSubArrays(array):

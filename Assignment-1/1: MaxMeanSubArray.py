@@ -3,8 +3,8 @@
 Given an array of integers and an integer, k, find the maximum mean of a subarray of size k.
 
 Technique: Sliding Window
-Time Complexity: O(n)
-Space Complexity: O(n)
+Time Complexity: O(n) --> Correction: O(1)
+Space Complexity: O(n) --> Correction: O(N*K)
 Time Taken: 30 minutes
 
 

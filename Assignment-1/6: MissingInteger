@@ -3,14 +3,21 @@
 Given an integer n and a sorted array of integers of size n-1 which contains 
 all but one of the integers in the range 1-n, find the missing integer.
 
-Technique: I'm not sure --> two-pointer?
-Time Complexity: O(n)
+Technique: Binary Search
+Time Complexity: O(logN)
 Space Complexity: O(1)
-Time Taken: 8 minutes
+Time Taken: 40+ minutes
 
 Notes:
-1. 
+1. Use Binary Search 
+2. I referenced my class's slides about BSTs: 
+https://docs.google.com/presentation/d/1vf9x_H6lhzBMmkdd4jle46W3KFthWaM-sDaNvn604eE/edit#slide=id.g8dd5cb732_01550
 '''
+
+'''
+Attempt #1 
+Time: O(N)  
+Space: O(1)
 
 def missingInteger(array, n):
     if not array:
@@ -18,7 +25,44 @@ def missingInteger(array, n):
     for i in range(1, n+1):
         if i not in array:
             return i
+'''
 
+#Attempt #2 - Binary Search
+def missingInteger(array, n):
+
+    if not array or n < 1:
+        return None
+    if n not in array:
+        return n
+
+    left = 0 
+    right = n-1 
+    
+    while left <= right : 
+        mid = (left+right) // 2
+
+       #check if the middle element corresponds to middle index
+       # ex: {1, 2, 3, 4, 5, 6, 8}
+       # mid = 3 and array[mid] = 3 + 1 --> correct
+       # but if we have {1, 2, 3, 5, 6, 7, 8}
+       # mid = 3 and array[mid - 1] = 3  --> mid+1 is missing
+        if (array[mid] != mid+1 and array[mid-1] == mid) : 
+            return mid + 1
+
+        # ex: {1, 2, 3, 4, 5, 6, 8}
+        # mid = 3 and array[mid] = 3 + 1 --> correct
+        #this means the right half is in order; we cut it out and search only the left,
+        #startinng from its middle (make leftmost digit mid+1)
+
+        elif (array[mid] == mid + 1):
+            left = mid + 1
+
+        #otherwise, the issue is somewhere on the right
+        #make rightmost digit mid - 1 and perform binary search only there
+        else:
+            right = mid - 1
+
+        #keeps going until eventually finding the wrong mid node
 
 #Test cases
 

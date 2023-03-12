@@ -3,15 +3,16 @@
 Given a string, reverse the order of the vowels in the string.
 
 Technique: Forward-Backward Two-Pointer
-Time Complexity: O(n)
-Space Complexity: O(1)
+Time Complexity: O(N)
+Space Complexity: O(1) --> Correction: O(N)
 Time Taken: 30 minutes
 
 '''
-def reverseVowels(str):
+#a list of all the vowels
+#sets 
+vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
 
-    #a list of all the vowels
-    vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+def reverseVowels(str):
 
     #convert string to a list of characters
     #set the pointers to the first and the last nodes
@@ -57,3 +58,20 @@ print(reverseVowels("pmswdlt"))  #Output: "pmswdlt"
 
 # if a string with only vowels is passed:
 print(reverseVowels("aoueiauoee"))  #Output: "eeouaieuoa"
+
+#one vowel
+print(reverseVowels("a"))  #Output: "a"
+
+print(reverseVowels("A"))  #Output: "A"
+
+print(reverseVowels("EeEiIi"))  #Output: "iIiEeE"
+
+#no letter
+print(reverseVowels("1+2+3=6%7=6"))  #Output: "1+2+3=6%7=6"
+
+#camel case
+print(reverseVowels("Once Upon A Time"))  #Output: "enci Apon U TemO"
+
+#long string
+print(reverseVowels("This is a long string. I am sitting in a library and it is raining outside."))  
+#Output: "Thes is u long string. i am sitting an a library ind it is raIning oatsidi."

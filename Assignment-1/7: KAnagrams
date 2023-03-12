@@ -6,8 +6,11 @@ Given two strings and an integer k, determine if they are k-anagrams.
 
 
 Technique: Increment Decrement Counts
-Time Complexity: O(n)
-Space Complexity: O(n)
+Time Complexity: O(N)
+Space Complexity: O(N) --> Correction: O(M)
+--> "Where m is the number of unique characters in the string since the function
+     builds two dictionaries to store the count of each string." 
+
 Time Taken: 15 min
 
 Notes:

@@ -7,11 +7,11 @@ Backspaces are represented by the '#' character so "x#" results in the empty str
 
 Technique: Simultanious Iteration Two-Pointer
 Time Complexity: O(n)
-Space Complexity: O(n) (or maybe O(n^2)? . . . unsure)
+Space Complexity: O(n) 
 Time Taken: 12 minutes
 
 Notes:
-1. 
+1. Can be OPTIMIZED
 '''
 
 
