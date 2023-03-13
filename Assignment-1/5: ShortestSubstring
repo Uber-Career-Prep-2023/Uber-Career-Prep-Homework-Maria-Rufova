@@ -4,26 +4,75 @@
 Given a string and a second string representing required characters, 
 return the length of the shortest substring containing all the required characters.
 
-Technique: Two-Pointer with Catch-Up Condition
-Time Complexity: 
+Technique: Growing / Shrinking Sliding Window
+Time Complexity: 40+ (around 90 min)
 Space Complexity: 
 Time Taken: 
 
 Notes:
-1. 
+1. I definitely spent a lot more time than allowed on this one, but I wanted to finish it
+2. 
 '''
 def shortestSubstring(long, short):
 
-    substrings = {}
+    if len(short) > len(long):
+        return None
 
-    if long == "" or short == "":
-        return 0
+    elif not long or not short:
+        return None
 
-    subintervals = {} #{ abrac: 5, brac: 4, ...}
-    reqChars = short.split()
+    shortest = long
+    shortCounts = {} #short = "abc" --> shortCount = {a:1, b:1, c:1}
+    currWindow = {} #keep track of letters curretly in window --> {a:2, b:1, r:1, c:1, etc}
+
+    for letter in short: #fill shortCounts  --> shortCount = {a:1, b:1, c:1}
+        if letter in shortCounts:
+            shortCounts[letter] += 1
+        else:
+            shortCounts[letter] = 1
+    
+    leftmost = 0 #keep track of the left and right edge of current window
+    #rightmost = 0 --> actually don't need this since this is the same as the index we are tracking in our for loop!
+
+    #keep track of how many letters we need to find
+    #once we found all --> save the window
+    numLettersNeeded = len(shortCounts) 
+    numLettersFound = 0
+
+    for rightmost in range(len(long)):
+        # start going though the long string and filling currWindow with letters you find
+        letter = long[rightmost]
+        if letter in currWindow:
+            currWindow[letter] += 1
+        else:
+            currWindow[letter] = 1
+
+        #if found one of the letters we need, update numLettersFound
+        if letter in shortCounts and currWindow[letter] == shortCounts[letter]:
+            numLettersFound += 1
+
+        #keep looking for letters until found all the needed once
+        #once you found a suitable window, update shortestSubstring
+        while numLettersNeeded == numLettersFound:
+            if (rightmost - leftmost + 1) < len(shortest):
+                shortest = long[leftmost : rightmost+1]
+
+                #slide the left edge of the window by 1
+                # --> decrease value of leftmost letter in the hashmap
+            currWindow[long[leftmost]] -= 1
+
+            #if the letter we are cutting out of the window is in short
+            #and there are no more instances of it in the remaining window
+            if long[leftmost] in shortCounts:
+                if currWindow[long[leftmost]] < shortCounts[long[leftmost]]:
+                    #that means we don't have all the needed letters anymore!
+                    numLettersFound -= 1 
+            leftmost += 1 #update leftmost letter index
+
+    return len(shortest)
 
 
-    return min(subintervals)
+
 
 #Test Cases:
 
@@ -32,8 +81,26 @@ def shortestSubstring(long, short):
 print(shortestSubstring("abracadabra", "abc"))
 #Output: 4   Shortest Substring: "brac"
 
-print(shortestSubstring("zxycbaabcdwxyzzxwdcbxyzabccbazyx", "abc"))
-#Output: 10   Shortest Substring: "zzyzx"
+print(shortestSubstring("zxycbaabcdwxyzzxwdcbxyzabccbazyx", "zzyzx"))
+#Output: 10   Shortest Substring: "zzxwdcbxyz"
 
 print(shortestSubstring("dog", "god"))
 #Output: 3   Shortest Substring: "dog"
+
+#Edge cases:
+
+# "short" is actually longer than "long"
+print(shortestSubstring("maria", "hellothisismaria"))
+#Output: None
+
+# empty long
+print(shortestSubstring("", "wow"))
+#Output: None
+
+# empty short
+print(shortestSubstring("sunshine", ""))
+#Output: None
+
+# no letters
+print(shortestSubstring("^#@34[{+=12@3*&^)", "@3^"))
+#Output: 4    Shortest Substring: "^#@3"
