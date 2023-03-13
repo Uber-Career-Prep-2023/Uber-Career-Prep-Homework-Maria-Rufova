@@ -5,9 +5,9 @@ Given a string and a second string representing required characters,
 return the length of the shortest substring containing all the required characters.
 
 Technique: Growing / Shrinking Sliding Window
-Time Complexity: 40+ (around 90 min)
-Space Complexity: 
-Time Taken: 
+Time Complexity: O(N)
+Space Complexity: O(1) --> i think?
+Time Taken: 40+ (around 90 min)
 
 Notes:
 1. I definitely spent a lot more time than allowed on this one, but I wanted to finish it
