@@ -6,23 +6,28 @@ in your language of choice, the remaining elements should appear in the left-han
 the array and the extra space in the right-hand side should be padded with -1s.
 
 
-Technique: 
-Time Complexity: 
-Space Complexity: 
+Technique: Sorting Algorithm Variation
+Time Complexity: O(N)
+Space Complexity: O(1)
 Time Taken: 20
 
 Notes:
 1. Pay attention to "modified" = adjust the same list, don't make a new one
+2. Now that I'm looking at this again, this can just be made into a set.
+
+array = set(array) 
 '''
 
 def dedUpArray(array):
+    '''
     if len(array) <= 1:
         return array
     for i in range(1, len(array)-1):
         if array[i] == array[i-1]:
             array.pop(i)
+    '''
 
-    return array
+    return list(set(array))
 
 #Test Cases:
 #from the spec
@@ -35,3 +40,21 @@ print(dedUpArray([0, 0, 1, 4, 5, 5, 5, 8, 9, 9, 10, 11, 15, 15]))
 
 print(dedUpArray([1, 3, 4, 8, 10, 12]))
 #modified array: [1, 3, 4, 8, 10, 12]
+
+#Edge Cases:
+
+#empty array
+print(dedUpArray([]))
+#modified array: []
+
+#same number
+print(dedUpArray([5, 5, 5, 5, 5]))
+#modified array: [5]
+
+#letters
+print(dedUpArray(["a", "b", "c", "d", "e", "e", "a", "d", "c"]))
+#modified array: ['a', 'c', 'd', 'b', 'e']
+
+#other characters
+print(dedUpArray(["%", ";", "+", ",", ",", "%"]))
+#modified array: [',', '+', '%', ';']

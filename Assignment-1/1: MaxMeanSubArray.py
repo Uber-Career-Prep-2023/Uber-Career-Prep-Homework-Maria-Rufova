@@ -7,10 +7,31 @@ Time Complexity: O(n) --> Correction: O(1)
 Space Complexity: O(n) --> Correction: O(N*K)
 Time Taken: 30 minutes
 
-
+Post Feedback: 
 '''
 def MaxMeanSubArray(array, k):
 
+    '''
+    Optimized:
+    # check if array is empty, or k window length is 0,
+    # or k window length is greater than length of array
+    if (not array or k==0): 
+        return 0
+    if (k > len(array)):
+        return "The window is too big!"
+
+
+    windowSum = sum(array[:k])
+    maxMean = windowSum / k
+    for i in range(k, len(array)):
+        windowSum += array[i] - array[i-k]
+        windowMean = windowSum / k
+        if windowMean > maxMean:
+            maxMean = windowMean
+
+    return maxMean
+    '''
+    
     # check is array is empty, or k window length is 0,
     # or k window length is greater than length of array
     if (not array or k==0): 
@@ -41,6 +62,8 @@ def MaxMeanSubArray(array, k):
 
 
     return maxMean
+
+
 
 #Test Cases:
 arr1 = [4, 5, -3, 2, 6, 1]

@@ -10,7 +10,7 @@ Time Taken: 30 minutes
 '''
 #a list of all the vowels
 #sets 
-vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+vowels = ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
 
 def reverseVowels(str):
 
