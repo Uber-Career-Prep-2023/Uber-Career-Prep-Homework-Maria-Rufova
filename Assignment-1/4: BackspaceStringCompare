@@ -16,6 +16,22 @@ Notes:
 
 
 def backspaceStringCompare(str1 , str2):
+    
+    '''
+    def traverse(s):
+        skip = 0
+        for c in reversed(s):
+            if c == '#':
+                skip += 1
+            elif skip > 0:
+                skip -= 1
+            else:
+                yield c
+    
+    return all(x == y for x, y in itertools.zip_longest(traverse(str1), traverse(str2)))
+    '''
+    
+    
     str1List = []
     str2List = []
 

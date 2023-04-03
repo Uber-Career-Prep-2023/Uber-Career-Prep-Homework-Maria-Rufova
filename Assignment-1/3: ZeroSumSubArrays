@@ -20,17 +20,17 @@ def zeroSumSubArrays(array):
     '''
     Optimized:
     def zeroSumSubArrays(array):
-    sumsOfZero = 0
-    sumMap = {}
-    currentSum = 0
-    for i in range(len(array)):
-        currentSum += array[i]
-        if currentSum == 0:
-            sumsOfZero += 1
-        if currentSum in sumMap:
-            sumsOfZero += sumMap[currentSum]
-        sumMap[currentSum] = sumMap.get(currentSum, 0) + 1
-    return sumsOfZero
+        sumsOfZero = 0
+        sumMap = {}
+        currentSum = 0
+        for i in range(len(array)):
+            currentSum += array[i]
+            if currentSum == 0:
+                sumsOfZero += 1
+            if currentSum in sumMap:
+                sumsOfZero += sumMap[currentSum]
+            sumMap[currentSum] = sumMap.get(currentSum, 0) + 1
+        return sumsOfZero
 
     '''
     
