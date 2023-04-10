@@ -1,39 +1,39 @@
-public class SingleLinkedList {
+public class DoubleLinkedList {
 
     //instance variables
     private Node head; //head of the linked list
     private int size; //size of the linkedlist
-    
+
     //main
     public static void main(String[] args) {
 
-        SingleLinkedList sll = new SingleLinkedList();
-        sll.insertAtFront(5);
-        sll.insertAtFront(4);
-        sll.insertAtFront(1);
-        sll.printSLL(); //1 4 5
+        DoubleLinkedList dll = new DoubleLinkedList();
+        dll.insertAtFront(5);
+        dll.insertAtFront(4);
+        dll.insertAtFront(1);
+        dll.printSLL(); //1 4 5
 
-        sll.insertAtBack(6);
-        sll.insertAtBack(7);
-        sll.printSLL(); //1 4 5 6 7
+        dll.insertAtBack(6);
+        dll.insertAtBack(7);
+        dll.printSLL(); //1 4 5 6 7
 
-        sll.insertAfter(2, sll.head);
-        sll.insertAfter(3, sll.head.next);
-        sll.printSLL(); //1 2 3 4 5 6 7
-        System.out.println(sll.size); //7
+        dll.insertAfter(2, dll.head);
+        dll.insertAfter(3, dll.head.next);
+        dll.printSLL(); //1 2 3 4 5 6 7
+        System.out.println(dll.size); //7
 
-        sll.deleteFront();
-        sll.printSLL(); // 2 3 4 5 6 7
-        sll.deleteBack();
-        sll.printSLL(); // 2 3 4 5 6
-        sll.deleteNode(sll.head.next.next);
-        sll.printSLL(); // 2 3 5 6
-        System.out.println(sll.size); //4
+        dll.deleteFront();
+        dll.printSLL(); // 2 3 4 5 6 7
+        dll.deleteBack();
+        dll.printSLL(); // 2 3 4 5 6
+        dll.deleteNode(dll.head.next.next);
+        dll.printSLL(); // 2 3 5 6
+        System.out.println(dll.size); //4
 
-        sll.reverseIterative();
-        sll.printSLL(); // 6 5 3 2
-        sll.reverseRecursive(sll.head);
-        sll.printSLL(); // 2 3 5 6
+        dll.reverseIterative();
+        dll.printSLL(); // 6 5 3 2
+        dll.reverseRecursive(dll.head);
+        dll.printSLL(); // 2 3 5 6
 
     }
 
@@ -41,9 +41,9 @@ public class SingleLinkedList {
     private class Node {
         int data;
         Node next;
+        Node prev;
         Node (int i) {
             this.data = i;
-            this.next = null;
         }
     }
 
@@ -55,7 +55,9 @@ public class SingleLinkedList {
         if (head == null) {
             head = first;
         } else {
+            first.prev = null;
             first.next = head;
+            head.prev = first;
             head = first;
         }
 
@@ -68,6 +70,8 @@ public class SingleLinkedList {
      */
     public void insertAtBack(int val) {
         Node last = new Node(val);
+        last.next = null;
+
         if (head == null) {
             head = last;
         } else {
@@ -76,6 +80,7 @@ public class SingleLinkedList {
                 tail = tail.next;
             }
             tail.next = last;
+            last.prev = tail;
         }
 
         size += 1;
@@ -89,6 +94,7 @@ public class SingleLinkedList {
         Node newNode = new Node(val);
         newNode.next = loc.next;
         loc.next = newNode;
+        newNode.prev = loc;
 
         size += 1;
     }
@@ -97,7 +103,9 @@ public class SingleLinkedList {
     Time / Space: O(1)
      */
     public Node deleteFront() {
+        //head.next.prev = head.prev; <-- this made the list circular, which I don't think we need to do?
         head = head.next;
+        head.prev = null;
         size -= 1;
         return head;
 
@@ -108,13 +116,11 @@ public class SingleLinkedList {
      */
 
     public void deleteBack() {
-        Node prev = null;
         Node curr = head;
-        while (curr.next != null) {
-            prev = curr;
+        while (curr.next.next != null) {
             curr = curr.next;
         }
-        prev.next = null;
+        curr.next = null;
         size -= 1;
     }
 
@@ -123,15 +129,14 @@ public class SingleLinkedList {
      */
     public Node deleteNode(Node loc) {
 
-        Node prev = null;
         Node curr = head;
 
         while (curr != loc) {
-            prev = curr;
             curr = curr.next;
         }
-        prev.next = curr.next;
-        curr.next = null;
+        curr.prev.next = curr.next;
+        curr.next.prev = curr.prev;
+
         size -= 1;
 
         return head;
@@ -152,14 +157,14 @@ public class SingleLinkedList {
 
         Node prev = null;
         Node curr = head;
-        Node next = null;
+
         while (curr != null) {
-            next = curr.next;
+            prev = curr.prev;
+            curr.prev = curr.next;
             curr.next = prev;
-            prev = curr;
-            curr = next;
+            curr = curr.prev;
         }
-        head = prev;
+        head = prev.prev;
         return head;
     }
     /* reverses the linked list recursively (Hint: you will need a helper function)
@@ -170,14 +175,16 @@ public class SingleLinkedList {
     public Node reverseRecursive(Node curr){
 
         Node rest;
-        if (curr.next == null || curr == null){
+
+        rest = curr.next;
+        curr.next = curr.prev;
+        curr.prev = rest;
+
+        if (curr.prev == null){
             return curr;
         }
-        rest = reverseRecursive(curr.next);
-        curr.next.next = curr;
-        curr.next = null;
 
-        return rest;
+        return reverseRecursive(curr.prev);
     }
 
     /*
