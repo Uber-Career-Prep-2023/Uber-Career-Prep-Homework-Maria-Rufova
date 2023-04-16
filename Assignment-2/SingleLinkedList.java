@@ -38,7 +38,7 @@ public class SingleLinkedList {
     }
 
     //Node class
-    private class Node {
+    public class Node {
         int data;
         Node next;
         Node (int i) {

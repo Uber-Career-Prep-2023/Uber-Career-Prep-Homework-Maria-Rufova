@@ -6,7 +6,7 @@ public class BinarySearchTree {
         BinarySearchTree bst = new BinarySearchTree();
     }
 
-    private class Node {
+    public class Node {
         int data;
         Node left;
         Node right;
@@ -110,7 +110,7 @@ public class BinarySearchTree {
 
         if (val == root.data) { //if we found our node
             //case 1 - no children
-            if (root.left == null && !root.right == null) {
+            if (root.left == null && root.right == null) {
                 root = null;
             }
             //case 2 - 1 child
