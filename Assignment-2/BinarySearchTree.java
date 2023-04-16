@@ -1,6 +1,10 @@
 public class BinarySearchTree {
-
     Node root;
+
+    public static void main(String[] args) {
+        //test the bst here
+        BinarySearchTree bst = new BinarySearchTree();
+    }
 
     private class Node {
         int data;
@@ -29,6 +33,17 @@ public class BinarySearchTree {
         }
         return max;
     }
+
+    //max value within the children of a specific node in the BST
+    public int max(Node node) { //--> go as far right as you can
+        int max = node.data;
+        while (node.right != null) {
+            max = node.right.data;
+            node = node.right;
+        }
+        return max;
+    }
+
     // returns a boolean indicating whether val is present in the BST
     public boolean contains(int val) {
         return containsHelper(root, val) != null;
@@ -40,10 +55,9 @@ public class BinarySearchTree {
         } else if (root.data < val) {
             //Root is smaller --> go right to search among bigger vals
             return containsHelper(root.right, val);
-        } else if (root.data > val) {
-            //Root is larger --> go left to search among smaller vals
-            return containsHelper(root.left, val);
         }
+        //Root is larger --> go left to search among smaller vals
+        return containsHelper(root.left, val);
     }
 
 
@@ -69,17 +83,52 @@ public class BinarySearchTree {
     }
 
     // deletes the Node with data val, if it exists
-    //spec says return type is int?
-    //FINISH later --> I don't know what int it should return if it doesn't find the value.
-    public int delete(int val) {
+    //very helpful: https://www.cs.usfca.edu/~galles/visualization/BST.html
+    /*
+    how to go about this:
+    1. locate the desired node similarly to how it's done in insert
+    2. if node has 0 children --> set it to null, return
+    3. if node has 1 child --> make that child the child of the deleted node's parent
+    4. if node has 2 children --> replace with the max of the left branch
+     */
+    public void delete(int val) {
         if (contains(val)) {
             root = deleteHelper(root, val);
-            return deleteHelper(root, val).data;
         }
-        return -1;
     }
 
     public Node deleteHelper(Node root, int val) {
+        if (root == null){
+            return null;
+        } else {
+            if (val < root.data) { //smaller --> go left
+                root.left = deleteHelper(root.left, val);
+            } else if (val > root.data) { //bigger --> go right
+                root.right = deleteHelper(root.right, val);
+            }
+        }
+
+        if (val == root.data) { //if we found our node
+            //case 1 - no children
+            if (root.left == null && !root.right == null) {
+                root = null;
+            }
+            //case 2 - 1 child
+            //one child on the left only --> make that left child take place of deleted node
+            else if (root.right == null) {
+                root = root.left;
+            }
+            //one child on the right only
+            else if (root.left == null) {
+                root = root.right;
+            }
+            else {
+                //case 3: 2 children
+                int max = max(root.left);
+                root.data = max;
+                root.left = deleteHelper(root.left, max);
+            }
+        }
         return root;
     }
 
