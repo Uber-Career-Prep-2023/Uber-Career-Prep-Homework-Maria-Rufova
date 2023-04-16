@@ -4,6 +4,12 @@ public class DoubleLinkedList {
     private Node head; //head of the linked list
     private int size; //size of the linkedlist
 
+    //constructor
+    public DoubleLinkedList() {
+        head = null;
+        size = 0;
+    }
+
     //main
     public static void main(String[] args) {
 
@@ -186,6 +192,9 @@ public class DoubleLinkedList {
 
         return reverseRecursive(curr.prev);
     }
+
+
+    //////////////// extra ////////////////////
 
     /*
     prints sll for testing

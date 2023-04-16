@@ -6,8 +6,11 @@
 
 public class Q4_CopyTree extends BinarySearchTree{
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
-        copyTree(bst);
+
+        //Test 1: Normal bushy BST
+        BinarySearchTree bst1 = new BinarySearchTree();
+
+        copyTree(bst1);
     }
 
     public static Node copyTree(BinarySearchTree bst) {

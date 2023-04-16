@@ -3,6 +3,12 @@ public class SingleLinkedList {
     //instance variables
     private Node head; //head of the linked list
     private int size; //size of the linkedlist
+
+    //single
+    public SingleLinkedList() {
+        head = null;
+        size = 0;
+    }
     
     //main
     public static void main(String[] args) {
@@ -166,7 +172,6 @@ public class SingleLinkedList {
     Time: O(N) ? / Space: O(1)
      */
 
-
     public Node reverseRecursive(Node curr){
 
         Node rest;
@@ -180,6 +185,8 @@ public class SingleLinkedList {
         return rest;
     }
 
+
+ //////////////// extra ////////////////////
     /*
     prints sll for testing
     Time: O(N) / Space: O(1)
