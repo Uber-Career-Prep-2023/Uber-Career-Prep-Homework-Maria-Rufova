@@ -165,7 +165,7 @@ public class BinarySearchTree {
 
     //////////////// extra ////////////////////
     //max value within the children of a specific node in the BST
-    //(need this for delete() )
+    //(need this for delete() , Q5 )
     public int max(Node node) { //--> go as far right as you can
         int max = node.data;
         while (node.right != null) {
@@ -173,6 +173,17 @@ public class BinarySearchTree {
             node = node.right;
         }
         return max;
+    }
+
+    // returns the minimum value in the BST
+    //need this for Q5
+    public int min(Node node) { //--> go as left as you can
+        int min = node.data;
+        while (node.left != null) {
+            min = node.left.data;
+            node = node.left;
+        }
+        return min;
     }
 
     //prints BST for testing

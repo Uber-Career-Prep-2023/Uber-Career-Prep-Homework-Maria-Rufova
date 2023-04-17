@@ -4,6 +4,12 @@
 Given a binary tree, create a deep copy. Return the root of the new tree.
 "A deep copy of an object is a copy whose properties do not share the same references" - mozilla.org
 
+Plan:
+1. Make a Copy blank tree
+2. Transverse input bst pre-order
+3. Get to the next Node --> make a copy of it --> add it to Copy
+4. Return when you went through the entire original bst
+
 Time: O(N)
 Space: O(N)
 Time taken: 10 minutes
