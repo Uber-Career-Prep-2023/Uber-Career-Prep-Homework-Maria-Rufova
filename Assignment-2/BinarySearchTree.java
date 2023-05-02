@@ -2,9 +2,12 @@ public class BinarySearchTree {
     Node root;
     int size;
 
+    static int lastLevel; //FOR QUESTION 10 - last level visited
+
     public BinarySearchTree() { //do we always need a constructor?
         root = null;
         size = 0;
+        lastLevel = 0;
     }
 
     public static void main(String[] args) {

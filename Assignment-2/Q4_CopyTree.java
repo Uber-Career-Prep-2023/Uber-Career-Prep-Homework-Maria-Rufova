@@ -16,6 +16,28 @@ Time taken: 10 minutes
  */
 
 public class Q4_CopyTree extends BinarySearchTree{
+
+    public static Node copyTree(BinarySearchTree bst) {
+        if (bst.root == null){
+            return null;
+        }
+        return preOrder(bst.root);
+    }
+
+    //helper function that makes a deep copy by transversing the original bst pre-order
+    public static Node preOrder (Node node) {
+        BinarySearchTree copy = new BinarySearchTree();
+
+        if (node == null) {
+            return null;
+        }
+        copy.root = new Node(node.data);
+        copy.root.left = preOrder(node.left);
+        copy.root.right = preOrder(node.right);
+
+        return copy.root;
+    }
+
     public static void main(String[] args) {
         //Test 1: Normal bushy BST
         BinarySearchTree bst1 = new BinarySearchTree();
@@ -53,27 +75,5 @@ public class Q4_CopyTree extends BinarySearchTree{
         System.out.println(copyTree(bst3).data); //root of the copy = 1
 
     }
-
-    public static Node copyTree(BinarySearchTree bst) {
-        if (bst.root == null){
-            return null;
-        }
-        return preOrder(bst.root);
-    }
-
-    //helper function that makes a deep copy by transversing the original bst pre-order
-    public static Node preOrder (Node node) {
-        BinarySearchTree copy = new BinarySearchTree();
-
-        if (node == null) {
-            return null;
-        }
-        copy.root = new Node(node.data);
-        copy.root.left = preOrder(node.left);
-        copy.root.right = preOrder(node.right);
-
-        return copy.root;
-    }
-
 
 }

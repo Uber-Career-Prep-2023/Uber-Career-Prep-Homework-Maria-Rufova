@@ -1,8 +1,8 @@
 public class SingleLinkedList {
 
     //instance variables
-    private Node head; //head of the linked list
-    private int size; //size of the linkedlist
+    public Node head; //head of the linked list
+    public int size; //size of the linked list
 
     //single
     public SingleLinkedList() {

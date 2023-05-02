@@ -1,8 +1,8 @@
 public class DoubleLinkedList {
 
     //instance variables
-    private Node head; //head of the linked list
-    private int size; //size of the linkedlist
+    public Node head; //head of the linked list
+    public int size; //size of the linkedlist
 
     //constructor
     public DoubleLinkedList() {
