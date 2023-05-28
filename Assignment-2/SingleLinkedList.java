@@ -2,6 +2,8 @@ public class SingleLinkedList {
 
     //instance variables
     public Node head; //head of the linked list
+
+    public Node tail; //tail of the linked list
     public int size; //size of the linked list
 
     //single
@@ -70,20 +72,27 @@ public class SingleLinkedList {
     }
 
     /* creates new Node with data val at end
-    Time: O(N) / Space: O(1)
+    Time: O(N) --> IMPROVED to O(1)
+    Space: O(1)
      */
     public void insertAtBack(int val) {
         Node last = new Node(val);
         if (head == null) {
-            head = last;
+            head = tail = last;
         } else {
+            tail.next = last;
+            tail = last;
+
+            /* OLD - O(N) - iterates over the whole list
+
             Node tail = head;
             while (tail.next != null) {
                 tail = tail.next;
             }
             tail.next = last;
-        }
 
+             */
+        }
         size += 1;
     }
 
@@ -103,6 +112,9 @@ public class SingleLinkedList {
     Time / Space: O(1)
      */
     public Node deleteFront() {
+        if (head == null) {
+            return null;
+        }
         head = head.next;
         size -= 1;
         return head;
