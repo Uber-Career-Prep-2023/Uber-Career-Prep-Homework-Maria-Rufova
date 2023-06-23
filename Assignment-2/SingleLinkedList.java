@@ -2,7 +2,6 @@ public class SingleLinkedList {
 
     //instance variables
     public Node head; //head of the linked list
-
     public Node tail; //tail of the linked list
     public int size; //size of the linked list
 
@@ -10,39 +9,6 @@ public class SingleLinkedList {
     public SingleLinkedList() {
         head = null;
         size = 0;
-    }
-    
-    //main
-    public static void main(String[] args) {
-
-        SingleLinkedList sll = new SingleLinkedList();
-        sll.insertAtFront(5);
-        sll.insertAtFront(4);
-        sll.insertAtFront(1);
-        sll.printSLL(); //1 4 5
-
-        sll.insertAtBack(6);
-        sll.insertAtBack(7);
-        sll.printSLL(); //1 4 5 6 7
-
-        sll.insertAfter(2, sll.head);
-        sll.insertAfter(3, sll.head.next);
-        sll.printSLL(); //1 2 3 4 5 6 7
-        System.out.println(sll.size); //7
-
-        sll.deleteFront();
-        sll.printSLL(); // 2 3 4 5 6 7
-        sll.deleteBack();
-        sll.printSLL(); // 2 3 4 5 6
-        sll.deleteNode(sll.head.next.next);
-        sll.printSLL(); // 2 3 5 6
-        System.out.println(sll.size); //4
-
-        sll.reverseIterative();
-        sll.printSLL(); // 6 5 3 2
-        sll.reverseRecursive(sll.head);
-        sll.printSLL(); // 2 3 5 6
-
     }
 
     //Node class
@@ -212,5 +178,40 @@ public class SingleLinkedList {
         }
         System.out.println(output);
     }
+
+
+    //main
+    public static void main(String[] args) {
+
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.insertAtFront(5);
+        sll.insertAtFront(4);
+        sll.insertAtFront(1);
+        sll.printSLL(); //1 4 5
+
+        sll.insertAtBack(6);
+        sll.insertAtBack(7);
+        sll.printSLL(); //1 4 5 6 7
+
+        sll.insertAfter(2, sll.head);
+        sll.insertAfter(3, sll.head.next);
+        sll.printSLL(); //1 2 3 4 5 6 7
+        System.out.println(sll.size); //7
+
+        sll.deleteFront();
+        sll.printSLL(); // 2 3 4 5 6 7
+        sll.deleteBack();
+        sll.printSLL(); // 2 3 4 5 6
+        sll.deleteNode(sll.head.next.next);
+        sll.printSLL(); // 2 3 5 6
+        System.out.println(sll.size); //4
+
+        sll.reverseIterative();
+        sll.printSLL(); // 6 5 3 2
+        sll.reverseRecursive(sll.head);
+        sll.printSLL(); // 2 3 5 6
+
+    }
+
 
 }
