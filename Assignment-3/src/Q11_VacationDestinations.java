@@ -22,11 +22,7 @@ Time taken:  40+ minutes
 public class Q11_VacationDestinations {
     public static void main (String args[]) {
         //Test 1
-        /*
-        I don't even know what data structure to use to represent this input?? Set? Hashmap? Something custom?
-        Input: [("Boston", "New York", 4), ("New York", "Philadelphia.", 2), ("Boston", "Newport", 1.5),
-        ("Washington, D.C.", "Harper's Ferry", 1), ("Boston", "Portland", 2.5), ("Philadelphia", "Washington, D.C.", 2.5)]
-         */
+
 
     }
 }
