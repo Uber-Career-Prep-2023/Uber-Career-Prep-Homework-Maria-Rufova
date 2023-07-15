@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class Q10_PrerequisiteCourses extends Q1_AdjLists_Graph{
-
     public String[] schedule(String[] courses){
         String[] schedule = new String[courses.length];
         for (int course : topologicalSort(this.graph)) {

@@ -57,7 +57,6 @@ public class Q5_FirstKBinaryNumbers {
             newBinary.insert(0, nextInt); //inserts the new digit to the front of the String
         }
         return newBinary.toString();
-
     }
     public static void main (String args[]) {
         //Test 1: From spec

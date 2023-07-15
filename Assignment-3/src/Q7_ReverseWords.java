@@ -18,7 +18,6 @@ Data Structure / Graph Algorithm: Stack:) Last In Last Out
 Time taken:  10 minutes
  */
 public class Q7_ReverseWords {
-
     public static String reverse(String input) {
         StringBuilder reverse = new StringBuilder(); //just learned about StringBuilder! it's easier that using += to add to a string all the time
         String[] arr = input.split(" "); //separate all the words in the input at spaces

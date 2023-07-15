@@ -24,7 +24,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.*;
 
 public class Q6_RoadNetworks{
-
     HashMap<String, Set<String>> graph; //adjacency list
     static String[] towns; //list of towns ["Kona", "Hilo", ...]
     static Pair[] roads; //list of roads [("Kona", "Volcano"), ("Volcano", "Hilo"), ... ]

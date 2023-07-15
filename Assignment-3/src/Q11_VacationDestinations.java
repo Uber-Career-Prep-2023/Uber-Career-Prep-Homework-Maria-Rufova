@@ -11,7 +11,16 @@ Origin = "New York", k=7
 Output: 2 (["Boston", "Philadelphia", "Washington, D.C", "Newport"])
 
 Plan:
-1.
+1. Graph is represented by a Hashmap where:
+    Key: String of a city name
+    Value: Destination instance that contains a Key city's String destination + Double travel time
+2. An ArrayList to store all possible destination (changed to array from an int to check for accidentally added duplicates)
+3. Add Destinations to a stack. Traverse while DFS.
+4. Add origin Destination to a stack. While stack is not Empty, pop the next city.
+5. If that popped city's destination is not origin, that means it is connected to other cities besides a direct connection to the origin
+So we found a stopover, add +1 to travel time. Add the city to list of destinations.
+6. If city.destination has other further destinations AND they are reachable within k travel time, add the next destinatin to the stack.
+7. After visiting every city, return the size of answer Arraylist
 
 Time: O(V + E)
 Space: O(V + E)

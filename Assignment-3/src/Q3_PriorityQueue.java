@@ -30,6 +30,7 @@ public class Q3_PriorityQueue {
         }
     }
 
+
     private Pair[] arr; //underlying array
     private int nextIndex; //keep track of the next free index
     private int capacity; //keep track of arr's capacity for resizing

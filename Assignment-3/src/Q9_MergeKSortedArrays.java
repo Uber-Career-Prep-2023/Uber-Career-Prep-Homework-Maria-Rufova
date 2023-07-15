@@ -18,7 +18,6 @@ Time taken:  10 minutes
  */
 
 import java.util.Arrays;
-
 public class Q9_MergeKSortedArrays extends Q2_MinHeap{
     public static int[] mergedArrays(int k, int[][] arrays){
         Q2_MinHeap minHeap = new Q2_MinHeap();

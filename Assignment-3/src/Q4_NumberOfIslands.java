@@ -44,6 +44,7 @@ public class Q4_NumberOfIslands {
         this.visited = new boolean[rows][cols];
     }
 
+
     public static int numberOfIslands(){
         for(int row=0; row < rows; row++){ //for every node represented by a (row, col) coordinate
             for (int col = 0; col < cols; col++) {
