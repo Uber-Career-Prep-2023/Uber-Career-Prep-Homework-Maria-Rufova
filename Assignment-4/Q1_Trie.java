@@ -81,7 +81,7 @@ public class Q1_Trie {
             }
             curr = curr.children[index]; //if the letter is found, keep checkng next letters
         }
-        return curr.validWord; //return true if all letters in 'word' has been found && 'word' is a complete, valid word
+        return true; //return true if all letters in 'word' has been found
     }
 
     //removes word from the trie & deletes unused nodes
