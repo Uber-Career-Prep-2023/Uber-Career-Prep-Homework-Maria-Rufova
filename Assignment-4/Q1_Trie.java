@@ -32,14 +32,14 @@ import java.util.Locale;
 
 public class Q1_Trie {
 
-    private TrieNode root;
+    public TrieNode root;
     public Q1_Trie() {
         root = new TrieNode(); //initialize the trie
     }
 
-    private class TrieNode {
-        private TrieNode[] children; //a (resizeable or fixed size) array of size 26
-        private boolean validWord; // boolean to indicate if this node marks the end of a word
+    public class TrieNode {
+        public TrieNode[] children; //a (resizeable or fixed size) array of size 26
+        public boolean validWord; // boolean to indicate if this node marks the end of a word
         public TrieNode(){
             this.children = new TrieNode[26];
             this.validWord = false;
