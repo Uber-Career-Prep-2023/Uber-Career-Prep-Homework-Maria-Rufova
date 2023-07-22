@@ -19,8 +19,8 @@ Notes:
 2. I got stuck on solving this using Trie structure from Q1 where the children array os each Node was represented by an
 array. I switched to a Trie implementation that uses a HashMap for each TrieNode to map the node to all its child letters.
 
-Time:
-Space:
+Time: O(L+N) wherw N is the total size of the dictionary and L is the length of each word? not sure about this
+Space: O(N) (where N is the size of the dictionary)
 Data Structure: Trie(to store words) + dfs (to traverse until you find a complete word)
 Time taken: 40+ minutes (a lot of thinking, couldn't figure out how to use only adjacent letters)
  */
@@ -116,6 +116,7 @@ public class Q2_Boggle {
 
         visited.remove(row + "," + col); //remove the letter from visited so it can be used for future dfs of different dictionary words
 
+        //pruning words from the Trie once we find them
         if(curr.children.isEmpty()){ //if curr node has no children to chack for
             node.children.remove(board[row][col]); //remove that node from trie
         }
