@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 /* Question 9: Adopt a Pet
@@ -29,6 +30,7 @@ Space: O(N) ? for N given animals
 Data Structure: Queue
 Time taken: 30 min
  */
+
 abstract class Animal { //general Animal class
     //abstract classes cannot be instantiated,
     String name;
@@ -151,3 +153,5 @@ public class Q9_AdoptAPet {
 
     }
 }
+
+
