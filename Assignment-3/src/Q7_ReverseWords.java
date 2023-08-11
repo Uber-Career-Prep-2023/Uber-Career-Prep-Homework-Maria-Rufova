@@ -30,6 +30,7 @@ public class Q7_ReverseWords {
             reverse.append(stack.pop());
             reverse.append(" ");
         }
+        reverse.deleteCharAt(reverse.length()-1);
         return reverse.toString();
     }
 
@@ -39,7 +40,7 @@ public class Q7_ReverseWords {
         System.out.println(reverse("Uber Career Prep")); //Prep Career Uber
 
         //Test 2
-        System.out.println(reverse("Emma lives in Brooklyn, New York.")); //York. York. New Brooklyn, in lives Emma
+        System.out.println(reverse("Emma lives in Brooklyn, New York.")); //York. New Brooklyn, in lives Emma
 
         //Test 3: Empty
         System.out.println(reverse("")); //

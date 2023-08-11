@@ -110,7 +110,7 @@ public class Q6_RoadNetworks{
         };
 
         alaska.adjacencySet(aRoads);
-        alaska.roadNetworks(aTowns, aRoads); // 2 --> [Homer, Glacier Bay] and [Anchorage, Fairbanks, McCarthy, Copper, Center, Homer, Healy]
+        System.out.println(alaska.roadNetworks(aTowns, aRoads)); // 2 --> [Homer, Glacier Bay] and [Anchorage, Fairbanks, McCarthy, Copper, Center, Homer, Healy]
 
         //Test 2: Hawaii
         Q6_RoadNetworks hawaii = new Q6_RoadNetworks();
@@ -127,7 +127,7 @@ public class Q6_RoadNetworks{
         };
 
         hawaii.adjacencySet(hRoads);
-        hawaii.roadNetworks(hTowns, hRoads); // 2 --> [Kona, Hilo, Volcano] and [Haiku, Kahului, Lahaina] and [Lihue, Waimea, Princeville]
+        System.out.println(hawaii.roadNetworks(hTowns, hRoads)); // 2 --> [Kona, Hilo, Volcano] and [Haiku, Kahului, Lahaina] and [Lihue, Waimea, Princeville]
 
     }
 }

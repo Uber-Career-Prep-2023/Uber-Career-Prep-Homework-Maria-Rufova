@@ -81,8 +81,10 @@ public class Q11_VacationDestinations {
                 answer.add(city.destination); //and add it to the list of destinations
             }
             if (map.get(city.destination) != null) { //if there are further destinations beyond this curr destination -> aka is dfs can continue down this branch
+
                 ArrayList<Destination> further = map.get(city.destination); //get a list of further cities on this branch
                 for (Destination d : further) { //for every further destination
+
                     if(city.time + d.time + stopover <= k){ //if adding this further destination (+ stopover) doesn't exceed our total travel time
                         //add this next destination and the total travel time it takes to get there to the stack
                         stack.add(new Destination(d.destination, city.time + d.time + stopover));

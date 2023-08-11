@@ -25,16 +25,16 @@ Plan:
 
 Time: O(N*M) --> for a matrix with NxM dimensions
 Space: O(N*M)
-Data Structure / Graph Algorithm: Graph - BST
+Data Structure / Graph Algorithm: Graph - DFS
 Time taken:  40 minutes (struggled with how to navigate around the grid)
  */
 public class Q4_NumberOfIslands {
     //instance variables
-    static int islands; //island counter
-    static int matrix[][]; //passed in matrix
-    static int rows;
-    static int cols;
-    static boolean[][] visited; //storing visited nodes during bfs
+    int islands; //island counter
+    int matrix[][]; //passed in matrix
+    int rows;
+    int cols;
+    boolean[][] visited; //storing visited nodes during bfs
 
     public Q4_NumberOfIslands(int[][] m){
         this.islands = 0;
@@ -45,11 +45,11 @@ public class Q4_NumberOfIslands {
     }
 
 
-    public static int numberOfIslands(){
+    public int numberOfIslands(){
         for(int row=0; row < rows; row++){ //for every node represented by a (row, col) coordinate
             for (int col = 0; col < cols; col++) {
                 if (matrix[row][col] == 1 && !visited[row][col]) { //if the node is an unvisited 1
-                    bfs(row, col); //star bfs
+                    dfs(row, col); //star bfs
                     islands+=1; //increment counter when current bfs ends
                 }
             }
@@ -57,7 +57,7 @@ public class Q4_NumberOfIslands {
         return islands;
     }
 
-    private static void bfs(int row, int col) {
+    private void dfs(int row, int col) {
         visited[row][col] = true; //mark the current node as visited so we don't check it again
 
         //visit each neighbor by taking 1 step in 1 of the four directions
@@ -68,7 +68,7 @@ public class Q4_NumberOfIslands {
                     matrix[row + n[0]][col + n[1]] == 1 && //is part of an island and
                     !visited[row + n[0]][col + n[1]]) { //has not been visited yet
 
-                bfs(row + n[0], col + n[1]); //keep performing bfs until all the island is captured
+                dfs(row + n[0], col + n[1]); //keep performing bfs until all the island is captured
 
             }
         }

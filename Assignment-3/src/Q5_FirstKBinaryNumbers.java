@@ -26,7 +26,6 @@ Notes:
 1. Took some time to think the math through because sometimes new digits would be appended incorrectly. StringBuilder (esp. the insert() method) helped quite a bit.
 2. Reminder to self: get used to using StringBuilder more because it has a lot of useful methods that make problems easier to understand, rather than using just String all the time.
  */
-
 import java.util.Arrays;
 
 public class Q5_FirstKBinaryNumbers {

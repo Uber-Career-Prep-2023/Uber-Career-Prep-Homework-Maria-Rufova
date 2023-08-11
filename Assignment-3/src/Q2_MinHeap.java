@@ -24,7 +24,6 @@ public class Q2_MinHeap {
         this.capacity = 20;
     }
 
-
     //returns the min (top) element in the heap (peek)
     //don't remove!
     //Time: O(1)

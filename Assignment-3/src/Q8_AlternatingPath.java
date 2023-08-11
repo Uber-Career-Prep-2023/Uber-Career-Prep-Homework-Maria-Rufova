@@ -49,6 +49,7 @@ simplifies some logistics and allows me to have a cleaner solution.
 4. red edge = 0
    blue edge  = 1
  */
+
 public class Q8_AlternatingPath {
     public static int alternatingPaths(Integer[][] red, Integer[][] blue, int origin, int destination) {
         /* the graph is represented by a Hashmap.

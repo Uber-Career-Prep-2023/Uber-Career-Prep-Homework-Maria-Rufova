@@ -30,6 +30,7 @@ public class Q10_PrerequisiteCourses extends Q1_AdjLists_Graph{
         for (int course : topologicalSort(this.graph)) {
             schedule[course] = courses[course];
         }
+
         return schedule;
     }
 
