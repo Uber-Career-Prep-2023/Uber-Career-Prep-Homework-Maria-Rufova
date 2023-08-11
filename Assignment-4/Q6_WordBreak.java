@@ -49,6 +49,7 @@ public class Q6_WordBreak {
                 }
             }
         }
+
         //if the whole s was successfully broken into smaller words from dict, index 0 in cache will be changed to true
         return cache[0];
     }

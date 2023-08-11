@@ -23,6 +23,7 @@ public class Q9_MergeKSortedArrays extends Q2_MinHeap{
         Q2_MinHeap minHeap = new Q2_MinHeap();
         int size = 0;
 
+
         for(int i = 0; i < arrays.length; i++) {
             for (int j = 0; j < arrays[i].length; j++){
                 minHeap.insert(arrays[i][j]);

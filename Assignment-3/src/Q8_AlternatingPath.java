@@ -103,9 +103,11 @@ public class Q8_AlternatingPath {
                 int edgeColor = neighbor.get(1); //edge color btw them
                 //if the neighbor has not yet been visited with a color edge and this edgeColor != prevColor
                 if(!visited[n][edgeColor] && edgeColor != prevColor){
+
                     if (answer[n] == -1) { //if this is neighbor's first visit, update its distance in the answer array
                         answer[n] = steps + 1;
                     }
+
                     visited[n][edgeColor] = true; //visit this neighbor
                     queue.offer(new int[] {n, 1+steps, edgeColor}); //update its steps and offer it to queue
 
